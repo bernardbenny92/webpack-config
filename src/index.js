@@ -1,3 +1,4 @@
+import './styles/index.scss'
 const sample ={
     test:1,
     test1:2,
