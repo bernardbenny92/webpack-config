@@ -34,13 +34,18 @@ module.exports={
                 ],
             },
             {
-                test:/\.js$/,
+                test:/\.jsx?$/,
                 exclude:/node_module/,
                 use:{
                     loader:"babel-loader"
                 }
             }
         ]
+    },
+
+    //extention support automatically
+    resolve: {
+        extensions: [".js", ".jsx"],
     },
 
     //source maps
