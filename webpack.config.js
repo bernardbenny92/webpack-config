@@ -7,6 +7,14 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 let mode = "development";
 let target = "web";
 
+const plugins = [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }),
+];
+
 if (process.env.NODE_ENV === "production") {
     mode = "production";
     // Temporary workaround for 'browserslist' bug that is being patched in the near future
@@ -29,11 +37,7 @@ module.exports = {
     },
     
 
-    plugins: [
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin(), 
-        new HtmlWebpackPlugin({template: "./src/index.html",})
-    ],
+    plugins: plugins,
 
     module: {
         rules: [
